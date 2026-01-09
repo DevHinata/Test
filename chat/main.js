@@ -155,16 +155,27 @@ async function checkHealth() {
 if(backBtn) {
   backBtn.onclick = (e) => {
     e.preventDefault();
-    // CRITICAL: Send message to parent window to close the iframe
     if (window.parent && window.parent !== window) { 
         window.parent.postMessage('close-chat', '*'); 
     } 
     else { 
-        // Fallback: If opened directly, go back
         window.history.back(); 
     }
   };
 }
+
+/* ====================================
+   KEYBOARD FOCUS FIX (NEW)
+   ==================================== */
+input.addEventListener('focus', () => {
+  setTimeout(() => {
+    window.scrollTo(0, 0);
+    document.body.scrollTop = 0;
+    if (window.visualViewport) {
+      handleResize();
+    }
+  }, 300);
+});
 
 // Initial Calls
 checkHealth();
