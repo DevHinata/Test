@@ -114,21 +114,30 @@ textarea {
   flex: 1;
   background: rgba(255, 255, 255, 0.07);
   border: 1px solid rgba(255,255,255,0.1);
-  border-radius: 24px;
-  padding: 12px 16px;
+  
+  /* UPDATED: Sharper corners */
+  border-radius: 8px; 
+  
+  /* UPDATED: Tighter padding */
+  padding: 10px 12px; 
+  
   font-size: 16px;
   color: white;
   resize: none;
-  height: 48px; max-height: 120px;
+  
+  /* UPDATED: Height to match padding */
+  height: 42px; 
+  max-height: 120px;
   overflow-y: hidden;
   font-family: inherit;
 }
+
 textarea:focus { background: rgba(255, 255, 255, 0.1); border-color: rgba(88, 101, 242, 0.6); }
 
 #send-btn {
-  width: 48px; height: 48px; flex-shrink: 0;
+  width: 42px; height: 42px; flex-shrink: 0; /* Match textarea height */
   border-radius: 50%; border: none; background: var(--accent-gradient); color: white;
   display: flex; align-items: center; justify-content: center; cursor: pointer;
 }
 #send-btn:disabled { opacity: 0.5; background: #333; }
-#send-btn svg { width: 22px; height: 22px; fill: white; margin-left: 2px; }
+#send-btn svg { width: 20px; height: 20px; fill: white; margin-left: 2px; }
